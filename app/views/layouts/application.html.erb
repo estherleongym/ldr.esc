@@ -9,6 +9,18 @@
   </head>
 
   <body>
+    <div id="flash">
+      <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%=h value %></div>
+        <%= javascript_tag "$('#flash_#{key}').fadeOut(5000);" %>
+      <% end %>
+    </div>
+    <% if logged_in? %>
+
+    <% else %>
+      
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
