@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LDREsc</title>
+    <title>LDR.esc</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,18 +9,35 @@
   </head>
 
   <body>
+    <% if signed_in? %>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+          <%= link_to 'Log Out', sign_out_path, method: :delete, class: 'navbar-brand' %>
+        </div>
+        <div id="navbar">
+
+        </div>
+      </div>
+      </nav>
+
+    <% else %>
+
+      <%= link_to 'Sign Up', sign_up_path, class: 'navbar-brand' %>
+      <%= link_to 'Log In', sign_in_path, class: 'navbar-brand' %>
+
+    <% end %>
+
+    <div class="container">
     <div id="flash">
       <% flash.each do |key, value| -%>
         <div id="flash_<%= key %>"><%=h value %></div>
         <%= javascript_tag "$('#flash_#{key}').fadeOut(5000);" %>
       <% end %>
-    </div>
-    <% if logged_in? %>
-
-    <% else %>
-      
-    <% end %>
-
+      </div>
     <%= yield %>
+    </div>
   </body>
 </html>

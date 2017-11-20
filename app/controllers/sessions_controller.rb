@@ -1,2 +1,2 @@
-class SessionsController < ApplicationController
+class SessionsController < Clearance::SessionsController
 end

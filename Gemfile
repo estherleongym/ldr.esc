@@ -40,11 +40,13 @@ gem 'figaro'
 gem 'clearance'
 
 # Use bootstrap for styling
-gem 'bootstrap'
-
-gem 'sprockets-rails'
+gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'jquery-rails'
+
+gem 'popper_js', '~> 1.12.3'
+
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
